@@ -18,14 +18,15 @@ function App() {
   const fetchData = async () => {
     const res = await fetch("https://pokeapi.co/api/v2/pokemon");
     const data = res.json();
-    console.log(data);
     return data;
   };
+
+  console.log(pokemon);
 
   return (
     <div className="App">
       <Navbar />
-      <PokemonList />
+      <PokemonList pokemon={pokemon} />
       <TypeList />
     </div>
   );

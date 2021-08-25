@@ -3,33 +3,41 @@ import Navbar from "./Navbar";
 import PokemonList from "./PokemonList";
 import TypeList from "./TypeList";
 import React from "react";
+import axios from "axios";
 
 function App() {
   const [showPokemon, setShowPokemon] = useState(true);
   const [showType, setShowType] = useState(false);
   const [pokemon, setPokemon] = useState([]);
 
-  useEffect(() => {
-    const getData = async () => {
-      const dataFromAPI = await fetchData();
-      setPokemon(dataFromAPI);
-    };
+  const api = axios.create({
+    baseURL: `https://pokeapi.co/api/v2/pokemon?limit=8`,
+  });
 
-    getData();
+  useEffect(() => {
+    fetchData();
   }, []);
 
-  const fetchData = async () => {
-    const res = await fetch("https://pokeapi.co/api/v2/pokemon");
-    const data = res.json();
-    return data;
+  const fetchData = (url) => {
+    api
+      .get(url)
+      .then((result) => {
+        setPokemon(result.data.results);
+      })
+      .catch((error) => console.error(`Error: ${error}`));
   };
 
-  console.log(pokemon);
-
   const switchView = () => {
+    if (!showType) {
+      fetchData("https://pokeapi.co/api/v2/type?limit=18");
+    } else {
+      fetchData("/");
+    }
     setShowPokemon(!showPokemon);
     setShowType(!showType);
   };
+
+  console.log(pokemon);
 
   return (
     <div className="App">

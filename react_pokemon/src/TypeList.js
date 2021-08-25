@@ -1,6 +1,6 @@
 export default function TypeList() {
   return (
-    <div>
+    <div className="content_window">
       <h3>Earth</h3>
       <h3>Air</h3>
       <h3>Fire</h3>

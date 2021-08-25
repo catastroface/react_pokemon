@@ -17,22 +17,21 @@ body {
 }
 
 .page_controls {
-  min-width: 30vw;
-  width: 30vw;
+  width: 30%;
+  min-width: 200px;
   height: 7vh;
-  margin-bottom: 3%;
+  margin: auto auto 3% auto;
   border: #37474f;
   border-style: solid;
   border-width: 6px;
   border-radius: 30px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   overflow: hidden;
 }
 
 .page_controls div {
-  width: 100%;
+  width: 50%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -44,6 +43,10 @@ body {
 .page_controls .active-page {
   background-color: #ff3d00;
   color: #ffffff;
+  border-bottom-width: 2px;
+  border-top-width: 2px;
+  border-bottom: #ff3d00;
+  border-top: #ff3d00;
 }
 
 .content_window {

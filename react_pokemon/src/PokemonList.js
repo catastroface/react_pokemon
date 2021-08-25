@@ -1,15 +1,12 @@
-export default function PokemonList({ pokemon }) {
+export default function PokemonList({ pokemons }) {
   return (
     <div className="content_window">
       <div className="cards">
-        <div>{/* <h2>{pokemon.results[0].name}</h2> */}</div>
-        <div>{/* <h2>{pokemon.results[1].name}</h2> */}</div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        {pokemons.map((pokemon) => (
+          <div>
+            <h3>{pokemon.name}</h3>
+          </div>
+        ))}
       </div>
       <div className="pagination">
         <div className="previous_page"></div>

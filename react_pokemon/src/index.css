@@ -26,13 +26,12 @@ body {
   border-width: 6px;
   border-radius: 30px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   overflow: hidden;
 }
 
 .page_controls div {
-  width: 100%;
+  width: 50%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -44,6 +43,10 @@ body {
 .page_controls .active-page {
   background-color: #ff3d00;
   color: #ffffff;
+  border-bottom-width: 2px;
+  border-top-width: 2px;
+  border-bottom: #ff3d00;
+  border-top: #ff3d00;
 }
 
 .content_window {

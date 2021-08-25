@@ -3,7 +3,7 @@ export default function PokemonList({ pokemons }) {
     <div className="content_window">
       <div className="cards">
         {pokemons.map((pokemon) => (
-          <div>
+          <div id={pokemon.url}>
             <h3>{pokemon.name}</h3>
           </div>
         ))}

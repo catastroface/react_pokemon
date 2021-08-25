@@ -8,7 +8,7 @@ import axios from "axios";
 function App() {
   const [showPokemon, setShowPokemon] = useState(true);
   const [showType, setShowType] = useState(false);
-  const [pokemon, setPokemon] = useState([]);
+  const [data, setData] = useState([]);
 
   const api = axios.create({
     baseURL: `https://pokeapi.co/api/v2/pokemon?limit=8`,
@@ -22,7 +22,7 @@ function App() {
     api
       .get(url)
       .then((result) => {
-        setPokemon(result.data.results);
+        setData(result.data.results);
       })
       .catch((error) => console.error(`Error: ${error}`));
   };
@@ -37,13 +37,13 @@ function App() {
     setShowType(!showType);
   };
 
-  console.log(pokemon);
+  console.log(data);
 
   return (
     <div className="App">
       <Navbar onClick={switchView} />
-      {showPokemon && <PokemonList pokemon={pokemon} />}
-      {showType && <TypeList />}
+      {showPokemon && <PokemonList pokemons={data} />}
+      {showType && <TypeList types={data} />}
     </div>
   );
 }

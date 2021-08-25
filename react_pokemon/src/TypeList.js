@@ -1,10 +1,12 @@
-export default function TypeList() {
+export default function TypeList({ types }) {
+  console.log(types);
   return (
     <div className="content_window">
-      <h3>Earth</h3>
-      <h3>Air</h3>
-      <h3>Fire</h3>
-      <h3>Water</h3>
+      {types.map((type) => (
+        <div className="type">
+          <h3>{type.name}</h3>
+        </div>
+      ))}
     </div>
   );
 }

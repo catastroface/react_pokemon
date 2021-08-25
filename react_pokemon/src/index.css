@@ -17,10 +17,10 @@ body {
 }
 
 .page_controls {
-  min-width: 30vw;
-  width: 30vw;
+  width: 30%;
+  min-width: 200px;
   height: 7vh;
-  margin-bottom: 3%;
+  margin: auto auto 3% auto;
   border: #37474f;
   border-style: solid;
   border-width: 6px;

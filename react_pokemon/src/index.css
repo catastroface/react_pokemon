@@ -86,7 +86,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin: 10px; */
+  text-transform: capitalize;
 }
 
 .content_window .card .card-content {

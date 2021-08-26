@@ -20,9 +20,9 @@ export default function PokemonList({ pokemons }) {
         ))}
       </div>
       <div className="pagination">
-        <div className="previous_page"></div>
-        <img src="./public/pokeball.png" alt=""></img>
-        <div className="next_page"></div>
+        <div className="previous-page"></div>
+        <img className="pokeball" src="./pokeball.png" alt=""></img>
+        <div className="next-page"></div>
       </div>
     </div>
   );

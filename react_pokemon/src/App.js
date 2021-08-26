@@ -9,6 +9,7 @@ function App() {
   const [showPokemon, setShowPokemon] = useState(true);
   const [showType, setShowType] = useState(false);
   const [data, setData] = useState([]);
+  const [pokemonDetails, SetPokemonDetails] = useState([]);
 
   const api = axios.create({
     baseURL: `https://pokeapi.co/api/v2/pokemon?limit=8`,

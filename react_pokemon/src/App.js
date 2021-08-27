@@ -11,21 +11,10 @@ function App() {
   const [pokemons, setPokemons] = useState([]);
   const [types, setTypes] = useState([]);
   const [pokemonDetails, setPokemonDetails] = useState({});
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    fetchData("https://pokeapi.co/api/v2/pokemon?limit=8").then((result) => {
-      setPokemons(result.data.results);
-      result.data.results.forEach((pokemon) => {
-        fetchData(pokemon.url).then((details) => {
-          console.log(details.data.name);
-          setPokemonDetails((prev) => ({
-            ...prev,
-            [pokemon.url]: details.data,
-          }));
-          console.log(pokemonDetails);
-        });
-      });
-    });
+    getPokemonDataByPage(1);
     fetchData("https://pokeapi.co/api/v2/type").then((result) => {
       setTypes(result.data.results);
     });
@@ -36,6 +25,34 @@ function App() {
     setShowPokemon(!showPokemon);
     setShowType(!showType);
     console.log(pokemonDetails);
+  };
+
+  const getPokemonDataByPage = (page) => {
+    const offset = (parseInt(page) - 1) * 8;
+    const url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=8`;
+    fetchData(url).then((result) => {
+      setPokemons(result.data.results);
+      result.data.results.forEach((pokemon) => {
+        fetchData(pokemon.url).then((details) => {
+          console.log(details.data.name);
+          setPokemonDetails((prev) => ({
+            ...prev,
+            [pokemon.url]: details.data,
+          }));
+        });
+      });
+    });
+    setCurrentPage(page);
+  };
+
+  const changePage = (step) => {
+    if (parseInt(step) < 0) {
+      if (currentPage !== 1) {
+        getPokemonDataByPage(currentPage + step);
+      }
+    } else {
+      getPokemonDataByPage(currentPage + step);
+    }
   };
 
   return (

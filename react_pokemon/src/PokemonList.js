@@ -1,7 +1,7 @@
 import React from "react";
 import Tilty from "react-tilty";
 
-export default function PokemonList({ pokemons, details, onClick }) {
+export default function PokemonList({ pokemons, details, onClick, page }) {
   const prevPg = () => {
     onClick(-1);
   };
@@ -48,7 +48,7 @@ export default function PokemonList({ pokemons, details, onClick }) {
         ))}
       </div>
       <div className="pagination">
-        <div className="previous-page" onClick={prevPg}></div>
+        {page !== 1 && <div className="previous-page" onClick={prevPg}></div>}
         <img
           className="pokeball"
           src="./pokeball.png"

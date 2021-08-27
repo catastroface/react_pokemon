@@ -65,6 +65,7 @@ function App() {
           pokemons={pokemons}
           details={pokemonDetails}
           onClick={changePage}
+          page={currentPage}
         />
       )}
       {showType && <TypeList types={types} />}

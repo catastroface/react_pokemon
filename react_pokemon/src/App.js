@@ -15,7 +15,7 @@ function App() {
 
   useEffect(() => {
     getPokemonDataByPage(1);
-    fetchData("https://pokeapi.co/api/v2/type").then((result) => {
+    fetchData("https://pokeapi.co/api/v2/type?limit=18").then((result) => {
       setTypes(result.data.results);
     });
     console.log(pokemonDetails);

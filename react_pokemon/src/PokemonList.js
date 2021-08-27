@@ -25,7 +25,7 @@ export default function PokemonList({ pokemons, details }) {
                   backgroundPosition: "center",
                   transform: "translateZ(15px)",
                 }}
-                className="card"
+                className={`card ${details[pokemon.url].types[0].type.name}`}
               >
                 <div className="card-content">
                   <h2>{pokemon.name}</h2>

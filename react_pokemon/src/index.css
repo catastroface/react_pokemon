@@ -79,7 +79,7 @@ body {
   position: relative;
   width: 100%;
   height: 140px;
-  background-color: #cfd8dc;
+  /* background-color: #cfd8dc; */
   align-self: center;
   justify-self: center;
   border-radius: 15px;
@@ -88,6 +88,58 @@ body {
   justify-content: center;
   align-items: center;
   text-transform: capitalize;
+}
+
+.rock {
+  background-color: #b8a038;
+}
+.ghost {
+  background-color: #705898;
+}
+.electric {
+  background-color: #f8d030;
+}
+.bug {
+  background-color: #a8b820;
+}
+.poison {
+  background-color: #a040a0;
+}
+.normal {
+  background-color: #a8a878;
+}
+.fairy {
+  background-color: #ee99ac;
+}
+.fire {
+  background-color: #f08030;
+}
+.grass {
+  background-color: #78c850;
+}
+.water {
+  background-color: #6890f0;
+}
+.ground {
+  background-color: #e0c068;
+}
+.fighting {
+  background-color: #c03028;
+}
+.psychic {
+  background-color: #f85888;
+}
+.ice {
+  background-color: #98d8d8;
+}
+.dragon {
+  background-color: #7038f8;
+}
+.dark {
+  background-color: #705746;
+}
+.steel {
+  background-color: #b7b7ce;
 }
 
 .content_window .card .card-content {

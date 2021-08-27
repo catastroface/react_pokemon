@@ -7,6 +7,7 @@
 }
 
 body {
+  font-family: Roboto;
   background-color: #cfd8dc;
   height: 100vh;
   width: 100%;
@@ -60,22 +61,110 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding: 30 30 10 30;
+  z-index: 1;
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  padding: 3%;
 }
 
-.cards div {
-  width: 100px;
-  height: 100px;
+.content_window .card {
+  position: relative;
+  width: 100%;
+  height: 140px;
   background-color: #cfd8dc;
   align-self: center;
   justify-self: center;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.content_window .card .card-content {
+  padding: 10px;
+  text-align: center;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: 0.5s ease;
+}
+
+.content_window .card:hover .card-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card-content h2 {
+  color: #ffffff;
+  text-shadow: 3px 3px 0 #37474f, -1px -1px 0 #37474f, 1px -1px 0 #37474f,
+    -1px 1px 0 #37474f, 1px 1px 0 #37474f;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previous-page,
+.next-page {
+  height: 30px;
+  width: 30px;
+  background-color: #cfd8dc;
+  border-radius: 50%;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+.previous-page::after,
+.next-page::after {
+  content: "<";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.next-page::after {
+  content: ">";
+}
+
+.pokeball {
+  height: 50px;
+  margin: 0 10px;
+  transition: 0.5s ease;
+}
+
+.pokeball:hover,
+.previous-page:hover,
+.next-page:hover {
+  transform: scale(1.1);
+}
+
+.next-page:hover,
+.previous-page:hover {
+  background-color: #afbabe;
+}
+
+@media screen and (max-width: 715px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+  }
+
+  .content_window .card {
+    height: 120%;
+  }
 }

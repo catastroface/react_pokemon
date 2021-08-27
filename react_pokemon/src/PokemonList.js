@@ -6,7 +6,12 @@ export default function PokemonList({ pokemons, details }) {
     <div className="content_window">
       <div className="cards">
         {pokemons.map((pokemon) => (
-          <Tilty perspective={1500} style={{ transformStyle: "preserve-3d" }}>
+          <Tilty
+            perspective={1500}
+            style={{ transformStyle: "preserve-3d" }}
+            glare="true"
+            maxGlare="1"
+          >
             {details[pokemon.url] && (
               <div
                 style={{
@@ -16,10 +21,11 @@ export default function PokemonList({ pokemons, details }) {
                     ]
                   }")`,
                   backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
                   transform: "translateZ(15px)",
                 }}
                 className="card"
-                id={pokemon.url}
               >
                 <div className="card-content">
                   <h2>{pokemon.name}</h2>

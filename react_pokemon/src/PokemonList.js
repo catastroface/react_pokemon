@@ -1,5 +1,6 @@
 import React from "react";
 import Tilty from "react-tilty";
+import { Link } from "react-router-dom";
 
 export default function PokemonList({ pokemons, details, onClick, page }) {
   const prevPg = () => {
@@ -20,24 +21,26 @@ export default function PokemonList({ pokemons, details, onClick, page }) {
         {pokemons.map((pokemon) => (
           <Tilty perspective={1500} style={{ transformStyle: "preserve-3d" }}>
             {details[pokemon.url] && (
-              <div
-                style={{
-                  backgroundImage: `url("${
-                    details[pokemon.url].sprites.other["official-artwork"][
-                      "front_default"
-                    ]
-                  }")`,
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                  transform: "translateZ(15px)",
-                }}
-                className={`card ${details[pokemon.url].types[0].type.name}`}
-              >
-                <div className="card-content">
-                  <h2>{pokemon.name}</h2>
+              <Link to={`/pokemon/${details[pokemon.url].id}`}>
+                <div
+                  style={{
+                    backgroundImage: `url("${
+                      details[pokemon.url].sprites.other["official-artwork"][
+                        "front_default"
+                      ]
+                    }")`,
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    transform: "translateZ(15px)",
+                  }}
+                  className={`card ${details[pokemon.url].types[0].type.name}`}
+                >
+                  <div className="card-content">
+                    <h2>{pokemon.name}</h2>
+                  </div>
                 </div>
-              </div>
+              </Link>
             )}
           </Tilty>
         ))}

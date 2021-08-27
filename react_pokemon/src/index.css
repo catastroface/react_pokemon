@@ -17,6 +17,10 @@ body {
   justify-content: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 .page_controls {
   width: 30%;
   min-width: 200px;

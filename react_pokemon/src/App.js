@@ -1,9 +1,11 @@
+import React from "react";
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "./Navbar";
 import PokemonList from "./PokemonList";
 import TypeList from "./TypeList";
-import React from "react";
 import fetchData from "./fetchData";
+import PokemonDetails from "./PokemonDetails";
 
 function App() {
   const [showPokemon, setShowPokemon] = useState(true);
@@ -58,18 +60,33 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Navbar onClick={switchView} />
-      {showPokemon && (
-        <PokemonList
-          pokemons={pokemons}
-          details={pokemonDetails}
-          onClick={changePage}
-          page={currentPage}
+    <Router>
+      <div className="App">
+        <Route
+          path="/"
+          exact
+          render={() => (
+            <>
+              <Navbar onClick={switchView} />
+              {showPokemon && (
+                <PokemonList
+                  pokemons={pokemons}
+                  details={pokemonDetails}
+                  onClick={changePage}
+                  page={currentPage}
+                />
+              )}
+              {showType && <TypeList types={types} />}
+            </>
+          )}
         />
-      )}
-      {showType && <TypeList types={types} />}
-    </div>
+      </div>
+      <Route
+        path={`/pokemon/:id`}
+        render={(props) => <PokemonDetails {...props} />}
+        exact
+      ></Route>
+    </Router>
   );
 }
 

@@ -1,7 +1,19 @@
 import React from "react";
 import Tilty from "react-tilty";
 
-export default function PokemonList({ pokemons, details }) {
+export default function PokemonList({ pokemons, details, onClick, page }) {
+  const prevPg = () => {
+    onClick(-1);
+  };
+
+  const nextPg = () => {
+    onClick(1);
+  };
+
+  const homePg = () => {
+    onClick(0);
+  };
+
   return (
     <div className="content_window">
       <div className="cards">
@@ -36,9 +48,14 @@ export default function PokemonList({ pokemons, details }) {
         ))}
       </div>
       <div className="pagination">
-        <div className="previous-page"></div>
-        <img className="pokeball" src="./pokeball.png" alt=""></img>
-        <div className="next-page"></div>
+        {page !== 1 && <div className="previous-page" onClick={prevPg}></div>}
+        <img
+          className="pokeball"
+          src="./pokeball.png"
+          alt="Jump to first page"
+          onClick={homePg}
+        ></img>
+        <div className="next-page" onClick={nextPg}></div>
       </div>
     </div>
   );

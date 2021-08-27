@@ -50,6 +50,8 @@ function App() {
       if (currentPage !== 1) {
         getPokemonDataByPage(currentPage + step);
       }
+    } else if (parseInt(step) === 0) {
+      getPokemonDataByPage(1);
     } else {
       getPokemonDataByPage(currentPage + step);
     }
@@ -59,7 +61,11 @@ function App() {
     <div className="App">
       <Navbar onClick={switchView} />
       {showPokemon && (
-        <PokemonList pokemons={pokemons} details={pokemonDetails} />
+        <PokemonList
+          pokemons={pokemons}
+          details={pokemonDetails}
+          onClick={changePage}
+        />
       )}
       {showType && <TypeList types={types} />}
     </div>

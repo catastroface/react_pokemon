@@ -23,7 +23,7 @@ export default function PokemonDetails(props) {
               alt={details.name}
             />
           </div>
-          <div>
+          <div className="pokemon-info">
             <h1>{details.name}</h1>
             <h2>Types</h2>
             <ul>
@@ -38,7 +38,9 @@ export default function PokemonDetails(props) {
           </div>
         </>
       )}
-      <Link to="/">Go back</Link>
+      <Link to="/">
+        <div className="back-button"></div>
+      </Link>
     </div>
   );
 }

@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 
 export default function PokemonDetails(props) {
   const [details, setDetails] = useState([]);
-  const id = props.match.params.id;
-  const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
 
   useEffect(() => {
+    const id = props.match.params.id;
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
     fetchData(url).then((result) => {
       try {
         setDetails(result.data);
@@ -16,7 +16,7 @@ export default function PokemonDetails(props) {
         console.log("Check if there is a Pokémon with the given ID");
       }
     });
-  }, []);
+  }, [props.match.params.id]);
 
   return (
     <div className="content_window details-content">

@@ -32,9 +32,9 @@ export default function PokemonDetails(props) {
               ))}
             </ul>
             <h2>Height</h2>
-            <p>{details.height}</p>
+            <p>{`${parseInt(details.height) / 10} m`}</p>
             <h2>Weight</h2>
-            <p>{details.weight}</p>
+            <p>{`${parseInt(details.weight) / 10} kg`}</p>
           </div>
         </>
       )}

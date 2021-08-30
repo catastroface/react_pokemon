@@ -20,7 +20,6 @@ function App() {
     fetchData("https://pokeapi.co/api/v2/type?limit=18").then((result) => {
       setTypes(result.data.results);
     });
-    console.log(pokemonDetails);
   }, []);
 
   const switchView = () => {
@@ -36,7 +35,6 @@ function App() {
       setPokemons(result.data.results);
       result.data.results.forEach((pokemon) => {
         fetchData(pokemon.url).then((details) => {
-          console.log(details.data.name);
           setPokemonDetails((prev) => ({
             ...prev,
             [pokemon.url]: details.data,

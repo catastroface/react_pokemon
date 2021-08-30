@@ -9,7 +9,12 @@ export default function PokemonDetails(props) {
 
   useEffect(() => {
     fetchData(url).then((result) => {
-      setDetails(result.data);
+      try {
+        setDetails(result.data);
+      } catch (TypeError) {
+        console.error(TypeError);
+        console.log("Check if there is a Pokémon with the given ID");
+      }
     });
   }, []);
 

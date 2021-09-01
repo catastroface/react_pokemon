@@ -44,7 +44,11 @@ export default function PokemonDetails(props) {
         </>
       ) : (
         <>
-          <h2>No Pokémon avaliable with the given name :/</h2>
+          <h2>
+            Trying to find Pokémon... <br />
+            <br />
+            Please make sure you have entered the right name.
+          </h2>
         </>
       )}
       <Link to="/">

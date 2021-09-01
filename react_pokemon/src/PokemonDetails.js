@@ -20,7 +20,7 @@ export default function PokemonDetails(props) {
 
   return (
     <div className="content_window details-content">
-      {details.sprites && (
+      {details.sprites ? (
         <>
           <div>
             <img
@@ -41,6 +41,10 @@ export default function PokemonDetails(props) {
             <h2>Weight</h2>
             <p>{`${parseInt(details.weight) / 10} kg`}</p>
           </div>
+        </>
+      ) : (
+        <>
+          <h2>No Pokémon avaliable with the given name :/</h2>
         </>
       )}
       <Link to="/">

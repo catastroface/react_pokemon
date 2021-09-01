@@ -247,6 +247,16 @@ a {
   position: relative;
 }
 
+.previous-page {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
 .search_btn {
   background-color: #ff3d00;
 }

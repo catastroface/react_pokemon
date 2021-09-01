@@ -56,7 +56,11 @@ export default function PokemonList({ pokemons, details, onClick, page }) {
         ))}
       </div>
       <div className="pagination">
-        {page !== 1 && <div className="previous-page" onClick={prevPg}></div>}
+        {page !== 1 ? (
+          <div className="previous-page visible" onClick={prevPg}></div>
+        ) : (
+          <div className="previous-page" onClick={prevPg}></div>
+        )}
         <img
           className="pokeball"
           src="./pokeball.png"

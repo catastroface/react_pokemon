@@ -25,7 +25,6 @@ function App() {
   const switchView = () => {
     setShowPokemon(!showPokemon);
     setShowType(!showType);
-    console.log(pokemonDetails);
   };
 
   const getPokemonDataByPage = (page) => {

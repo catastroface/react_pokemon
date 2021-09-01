@@ -5,7 +5,11 @@ export default function TypeList({ types }) {
     <div className="content_window">
       <div className="types">
         {types.map((type) => (
-          <Tilty perspective={1500} style={{ transformStyle: "preserve-3d" }}>
+          <Tilty
+            key={type.name}
+            perspective={1500}
+            style={{ transformStyle: "preserve-3d" }}
+          >
             <div className={`type ${type.name}`}>
               <h2>{type.name}</h2>
             </div>

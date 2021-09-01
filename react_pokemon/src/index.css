@@ -232,10 +232,13 @@ a {
   transition: 0.5s ease;
 }
 
-.pokeball:hover,
-.previous-page:hover,
-.next-page:hover {
+.pokeball:hover {
   transform: scale(1.1);
+}
+
+.previous-page:active,
+.next-page:active {
+  transform: scale(0.8);
 }
 
 .next-page:hover,

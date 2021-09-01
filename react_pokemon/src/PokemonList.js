@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Tilty from "react-tilty";
 import { Link } from "react-router-dom";
 
 export default function PokemonList({ pokemons, details, onClick, page }) {
+  const [searchValue, setSearchValue] = useState("");
+
   const prevPg = () => {
     onClick(-1);
   };
@@ -11,8 +13,12 @@ export default function PokemonList({ pokemons, details, onClick, page }) {
     onClick(1);
   };
 
-  const homePg = () => {
-    onClick(0);
+  const displaySearch = () => {
+    document.getElementById("search").classList.toggle("active_search");
+  };
+
+  const updateSearchValue = () => {
+    setSearchValue(document.getElementById("search_input").value.toLowerCase());
   };
 
   return (
@@ -55,9 +61,15 @@ export default function PokemonList({ pokemons, details, onClick, page }) {
           className="pokeball"
           src="./pokeball.png"
           alt="Jump to first page"
-          onClick={homePg}
+          onClick={displaySearch}
         ></img>
         <div className="next-page" onClick={nextPg}></div>
+        <div className="search" id="search">
+          <input id="search_input" onInput={updateSearchValue}></input>
+          <Link to={`/pokemon/${searchValue}`}>
+            <div className="search_btn"></div>
+          </Link>
+        </div>
       </div>
     </div>
   );

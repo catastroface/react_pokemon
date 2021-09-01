@@ -19,7 +19,11 @@ export default function PokemonList({ pokemons, details, onClick, page }) {
     <div className="content_window">
       <div className="cards">
         {pokemons.map((pokemon) => (
-          <Tilty perspective={1500} style={{ transformStyle: "preserve-3d" }}>
+          <Tilty
+            key={pokemon.url}
+            perspective={1500}
+            style={{ transformStyle: "preserve-3d" }}
+          >
             {details[pokemon.url] && (
               <Link to={`/pokemon/${details[pokemon.url].id}`}>
                 <div
